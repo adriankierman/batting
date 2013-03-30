@@ -49,10 +49,15 @@ var PlayerStatGraph = function(element_id,url) {
 
 
 
+
+
     this.load = function() {
         d3.json(this.url, function(players) {
             this.players=players;
 
+//        this.txt = this.svg.append('text')
+//                .attr('transform', 'translate(5,20)')
+//                .text("Node Info");
 
           // Create a scale and brush for each trait.
           this.traits.forEach(function(d) {
@@ -71,7 +76,19 @@ var PlayerStatGraph = function(element_id,url) {
             .selectAll("path")
               .data(players)
             .enter().append("svg:path")
-              .attr("d", function(d) { return this.path(d); }.bind(this)).attr("class", "playerline");
+              .attr("d", function(d) { return this.path(d); }.bind(this))
+              .attr("class", "playerline")
+//              .attr("class", function(d) { return d.position.substring(0,5); });
+//
+//              .on("mouseover", function(d) {
+//                      var mousePos = d3.mouse(this);
+//                      this.txt.text(d.given_name+' '+d.surname);
+//                      this.txt.attr('transform', 'translate(' + mousePos + ')');
+//                  }.bind(this))
+//              .on("mousemove", function(d) {
+//                  var mousePos = d3.mouse(this);
+//                  this.txt.attr('transform', 'translate(' + mousePos + ')');
+//              }.bind(this));
 //              .attr("class", function(d) { return d.league; });
 
           // Add a group element for each trait.
@@ -99,8 +116,8 @@ var PlayerStatGraph = function(element_id,url) {
           // Add a brush for each axis.
           g.append("svg:g")
               .attr("class", "brush")
-              .attr("id", function(d) { return d })
-              .each(function(d) { d3.select('#'+d).call(this.y[d].brush); }.bind(this))
+              .attr("id", function(d) { return d+'_brush' })
+              .each(function(d) { d3.select('#'+d+'_brush').call(this.y[d].brush); }.bind(this))
             .selectAll("rect")
               .attr("x", -8)
               .attr("width", 16);
