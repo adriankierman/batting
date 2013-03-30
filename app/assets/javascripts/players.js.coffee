@@ -7,3 +7,4 @@ $ ->
     bServerSide: true
     sAjaxSource: $('#players-table').data('source')
     sPaginationType: 'bootstrap'
+    aaSorting: [[ 6, "desc" ]],

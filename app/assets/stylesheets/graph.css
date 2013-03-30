@@ -4,9 +4,16 @@ svg {
 
 .foreground path {
   fill: none;
-  stroke-opacity: .8;
-  stroke-width: 0.25px;
+  stroke-opacity: .3;
+  stroke-width: 0.7px;
 }
+
+.tripwire {
+  fill: none;
+  stroke-opacity: 0;
+  stroke-width: 3px;
+}
+
 
 .foreground path.fade {
   stroke: #000;
@@ -70,4 +77,10 @@ svg {
 .axis text {
   text-shadow: 0 1px 0 #fff;
   cursor: move;
+}
+
+
+.tooltip{
+    opacity: 1;
+    color:orange;
 }

@@ -34,17 +34,17 @@ var PlayerStatGraph = function(element_id,url) {
 
     // Handles a brush event, toggling the display of foreground lines.
     this.brush = function () {
-        var actives = this.traits.filter(function (p) {
+        this.actives = this.traits.filter(function (p) {
                 return !this.y[p].brush.empty();
-            }.bind(this)),
-            extents = actives.map(function (p) {
+            }.bind(this))
+        this.extents = this.actives.map(function (p) {
                 return this.y[p].brush.extent();
             }.bind(this));
         this.foreground.classed("fade", function (d) {
-            return !actives.every(function (p, i) {
-                return extents[i][0] <= d[p] && d[p] <= extents[i][1];
+            return !this.actives.every(function (p, i) {
+                return this.extents[i][0] <= d[p] && d[p] <= this.extents[i][1];
             }.bind(this));
-        });
+        }.bind(this));
     }.bind(this);
 
 
@@ -54,10 +54,6 @@ var PlayerStatGraph = function(element_id,url) {
     this.load = function() {
         d3.json(this.url, function(players) {
             this.players=players;
-
-//        this.txt = this.svg.append('text')
-//                .attr('transform', 'translate(5,20)')
-//                .text("Node Info");
 
           // Create a scale and brush for each trait.
           this.traits.forEach(function(d) {
@@ -78,18 +74,8 @@ var PlayerStatGraph = function(element_id,url) {
             .enter().append("svg:path")
               .attr("d", function(d) { return this.path(d); }.bind(this))
               .attr("class", "playerline")
-//              .attr("class", function(d) { return d.position.substring(0,5); });
-//
-//              .on("mouseover", function(d) {
-//                      var mousePos = d3.mouse(this);
-//                      this.txt.text(d.given_name+' '+d.surname);
-//                      this.txt.attr('transform', 'translate(' + mousePos + ')');
-//                  }.bind(this))
-//              .on("mousemove", function(d) {
-//                  var mousePos = d3.mouse(this);
-//                  this.txt.attr('transform', 'translate(' + mousePos + ')');
-//              }.bind(this));
-//              .attr("class", function(d) { return d.league; });
+              .call(d3.helper.tooltip(function(d, i){return d.given_name+' '+d.surname;}))
+
 
           // Add a group element for each trait.
           var g = this.svg.selectAll(".trait")
