@@ -1,0 +1,1257 @@
+<html>
+  <head>
+    <title>app/models/player.rb</title>
+    
+    <link href="../../report.css?0.512908952473103" media="screen" rel="stylesheet" type="text/css" />
+    <script src='../../jquery.js?0.38874365756201956'></script>
+    <script>
+      $(function() {
+
+        $('#toggle_test_file').click(function(e) {
+          e.preventDefault();
+          if ($('#main_file').hasClass('side_by_side')) {
+            $('#main_file').removeClass('side_by_side');
+          } else {
+            $('#main_file').addClass('side_by_side');
+          }
+        
+          $('#test_file').toggle();
+        });
+
+        $('#test_file').hide();
+        
+        function cleanString(str) {
+          return $.trim(str.replace(/<[^(<|>)]+>/gi, ''));
+        }
+        
+        $('.line_number').hover(function() {
+          $(this).attr('title', 'Line: ' + cleanString($(this).html()));
+        });
+        
+        $('.hit_number').hover(function() {
+          $(this).attr('title', 'Execution Count: ' + cleanString($(this).html()));
+        });
+        
+        $('.code_line').hover(function() {
+          $(this).attr('title', cleanString($(this).html()));
+        });
+        
+      });
+    </script>
+  </head>
+  <body>
+    <h1><a href="../../index.html">Coverage Report</a></h1>
+    
+    <table cellpadding='0' cellspacing='1'>
+      <tr class='header'>
+        <th>File</th>
+        <th>Lines</th>
+        <th>Lines Of Code</th>
+        <th>Untested Lines of Code</th>
+        <th>Tested %</th>
+      </tr>
+      <tr valign='top'>
+        <td>
+          app/models/player.rb
+          
+            <br />
+            <a href='#' id='toggle_test_file'>spec/models/player_spec.rb</a>
+          
+        </td>
+        <td>139</td>
+        <td>44</td>
+        <td>0</td>
+        <td>100.0%</td>
+      </tr>
+    </table>
+
+    <div>&nbsp;</div>
+    
+    <table cellpadding='0' cellspacing='1'>
+      <tr>
+        <th>Legend</th>
+      </tr>
+      <tr>
+        <td class='hit'>This line was executed.</td>
+      </tr>
+      <tr>
+        <td class='miss'>This line was not executed!</td>
+      </tr>
+      <tr>
+        <td class='never'>This line doesn't matter.</td>
+      </tr>
+    </table>
+    
+    <div>&nbsp;</div>
+
+    <div id='content'>
+      <div id='main_file'>
+        <table id='main'>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>1</td>
+              <td class='code_line'>
+                <pre>class Player < ActiveRecord::Base</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>2</td>
+              <td class='code_line'>
+                <pre>  belongs_to :team</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>3</td>
+              <td class='code_line'>
+                <pre>  attr_accessible :throws, :wins, :losses, :saves, :complete_games, :shut_outs, :era, :innings, :earned_runs, :hit_batter, :wild_pitches, :balk, :walked_batter, :struck_out_batter, :at_bats, :caught_stealing, :doubles, :mistakes, :games, :games_started, :given_name, :hit_by_pitch, :hits, :home_runs, :pb, :position, :rbi, :runs, :sacrifice_flies, :sacrifice_hits, :steals, :struck_out, :surname, :triples, :walks</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>4</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>5</td>
+              <td class='code_line'>
+                <pre>  before_validation :apply_default_values</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>6</td>
+              <td class='code_line'>
+                <pre>  after_validation :calculate_derived_statistics</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>7</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>8</td>
+              <td class='code_line'>
+                <pre>  def apply_default_values</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>9</td>
+              <td class='code_line'>
+                <pre>    self.hit_by_pitch ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>10</td>
+              <td class='code_line'>
+                <pre>    self.sacrifice_flies ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>11</td>
+              <td class='code_line'>
+                <pre>    self.walks ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>12</td>
+              <td class='code_line'>
+                <pre>    self.home_runs ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>13</td>
+              <td class='code_line'>
+                <pre>    self.runs ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>14</td>
+              <td class='code_line'>
+                <pre>    self.doubles ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>15</td>
+              <td class='code_line'>
+                <pre>    self.hit_by_pitch ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>16</td>
+              <td class='code_line'>
+                <pre>    self.sacrifice_flies ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>17</td>
+              <td class='code_line'>
+                <pre>    self.triples ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>18</td>
+              <td class='code_line'>
+                <pre>    self.steals ||= 0</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>19</td>
+              <td class='code_line'>
+                <pre>    true</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>20</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>21</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>22</td>
+              <td class='code_line'>
+                <pre>  # required - must be integer - cannot be blank</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>23</td>
+              <td class='code_line'>
+                <pre>  validates :hits,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>24</td>
+              <td class='code_line'>
+                <pre>            :at_bats,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>25</td>
+              <td class='code_line'>
+                <pre>            :numericality => { :only_integer => true, :greater_than => 0 }, :allow_blank=>false</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>26</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>27</td>
+              <td class='code_line'>
+                <pre>  # required - must be numeric (float ok)</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>28</td>
+              <td class='code_line'>
+                <pre>  validates :rbi,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>29</td>
+              <td class='code_line'>
+                <pre>            :numericality => true, :allow_blank=>false</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>30</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>31</td>
+              <td class='code_line'>
+                <pre>  # required - must be present, any string</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>32</td>
+              <td class='code_line'>
+                <pre>  validates :given_name,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>33</td>
+              <td class='code_line'>
+                <pre>            :surname,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>34</td>
+              <td class='code_line'>
+                <pre>            :presence=>true</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>35</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>36</td>
+              <td class='code_line'>
+                <pre>  # optional - must be numeric (float ok)</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>37</td>
+              <td class='code_line'>
+                <pre>  validates :era,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>38</td>
+              <td class='code_line'>
+                <pre>            :pb,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>39</td>
+              <td class='code_line'>
+                <pre>            :rbi,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>40</td>
+              <td class='code_line'>
+                <pre>            :numericality => true, :allow_blank=>true</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>41</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>42</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>43</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>44</td>
+              <td class='code_line'>
+                <pre>  # optional - must be integer (no floats)</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>45</td>
+              <td class='code_line'>
+                <pre>  validates :wins,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>46</td>
+              <td class='code_line'>
+                <pre>            :losses,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>47</td>
+              <td class='code_line'>
+                <pre>            :saves,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>48</td>
+              <td class='code_line'>
+                <pre>            :complete_games,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>49</td>
+              <td class='code_line'>
+                <pre>            :shut_outs,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>50</td>
+              <td class='code_line'>
+                <pre>            :balk,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>51</td>
+              <td class='code_line'>
+                <pre>            :caught_stealing,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>52</td>
+              <td class='code_line'>
+                <pre>            :doubles,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>53</td>
+              <td class='code_line'>
+                <pre>            :mistakes,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>54</td>
+              <td class='code_line'>
+                <pre>            :games,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>55</td>
+              <td class='code_line'>
+                <pre>            :games_started,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>56</td>
+              <td class='code_line'>
+                <pre>            :sacrifice_hits,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>57</td>
+              <td class='code_line'>
+                <pre>            :struck_out,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>58</td>
+              <td class='code_line'>
+                <pre>            :triples,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>59</td>
+              <td class='code_line'>
+                <pre>            :numericality => { :only_integer => true }, :allow_blank=>true</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>60</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>61</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>62</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>63</td>
+              <td class='code_line'>
+                <pre>  # required - defaults to zero if missing</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>64</td>
+              <td class='code_line'>
+                <pre>  validates :runs,</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>65</td>
+              <td class='code_line'>
+                <pre>            :hit_by_pitch,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>66</td>
+              <td class='code_line'>
+                <pre>            :sacrifice_flies,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>67</td>
+              <td class='code_line'>
+                <pre>            :walks,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>68</td>
+              <td class='code_line'>
+                <pre>            :home_runs,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>69</td>
+              <td class='code_line'>
+                <pre>            :doubles,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>70</td>
+              <td class='code_line'>
+                <pre>            :hit_by_pitch,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>71</td>
+              <td class='code_line'>
+                <pre>            :sacrifice_flies,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>72</td>
+              <td class='code_line'>
+                <pre>            :triples,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>73</td>
+              <td class='code_line'>
+                <pre>            :steals,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>74</td>
+              <td class='code_line'>
+                <pre>            :walks,</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>75</td>
+              <td class='code_line'>
+                <pre>            :numericality => { :only_integer => true }, :allow_blank=>true</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>76</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>77</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>78</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>79</td>
+              <td class='code_line'>
+                <pre>  def calculate_derived_statistics</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>80</td>
+              <td class='code_line'>
+                <pre>    if (self.errors.count<1)</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>81</td>
+              <td class='code_line'>
+                <pre>      self.batting_average=calculate_batting_average()</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>82</td>
+              <td class='code_line'>
+                <pre>      self.on_base_percentage_plus_slugging=calculate_on_base_percentage_plus_slugging()</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>83</td>
+              <td class='code_line'>
+                <pre>    end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>84</td>
+              <td class='code_line'>
+                <pre>    true</pre>
+              </td>
+              <td class='hit_number'>3793</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>85</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>86</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>87</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>88</td>
+              <td class='code_line'>
+                <pre>  def calculate_batting_average</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>89</td>
+              <td class='code_line'>
+                <pre>    avg=(hits.to_f)/(at_bats.to_f)</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>90</td>
+              <td class='code_line'>
+                <pre>    avg=0 if avg.nan?</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>91</td>
+              <td class='code_line'>
+                <pre>    return avg</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>92</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>93</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>94</td>
+              <td class='code_line'>
+                <pre>  def calculate_on_base_percentage_plus_slugging</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>95</td>
+              <td class='code_line'>
+                <pre>    return (self.calculate_on_base_percentage+self.calculate_slugging_percentage)</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>96</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>97</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>98</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>99</td>
+              <td class='code_line'>
+                <pre>  #For example, if Shawn Green has 619 at-bats, 184 hits, 72 bases on balls, 5 times hit by pitch</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>100</td>
+              <td class='code_line'>
+                <pre>  # and 5 sacrifice flies, his on-base percentage is .372 ((184+72+5)/(619+72+5+5)).</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>101</td>
+              <td class='code_line'>
+                <pre>  def calculate_on_base_percentage</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>102</td>
+              <td class='code_line'>
+                <pre>    #if (hits.nil? || walks.nil? || hit_by_pitch.nil? || at_bats.nil? || hit_by_pitch.nil? || sacrifice_flies.nil?)</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>103</td>
+              <td class='code_line'>
+                <pre>    #  pp self.attributes</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>104</td>
+              <td class='code_line'>
+                <pre>    #end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>105</td>
+              <td class='code_line'>
+                <pre>    return (self.hits.to_f+self.calculate_bases_on_balls+self.hit_by_pitch.to_f).to_f/(self.at_bats.to_f+self.calculate_bases_on_balls+self.hit_by_pitch.to_f+self.sacrifice_flies.to_f).to_f</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>106</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>107</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>108</td>
+              <td class='code_line'>
+                <pre>  def calculate_bases_on_balls</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>109</td>
+              <td class='code_line'>
+                <pre>     return self.walks.to_f</pre>
+              </td>
+              <td class='hit_number'>3807</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>110</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>111</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>112</td>
+              <td class='code_line'>
+                <pre>  # total bases / at bats</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>113</td>
+              <td class='code_line'>
+                <pre>  def calculate_slugging_percentage</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>114</td>
+              <td class='code_line'>
+                <pre>    return (self.bases().to_f)/(at_bats.to_f)</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>115</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>116</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>117</td>
+              <td class='code_line'>
+                <pre>  #total bases refers to the number of bases a player has gained with hits, i.e., the sum of his hits weighted by 1 for a single, 2 for a double, 3 for a triple and 4 for a home run.</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>118</td>
+              <td class='code_line'>
+                <pre>  def bases</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>119</td>
+              <td class='code_line'>
+                <pre>    return (self.calculate_singles+(2*self.doubles)+(3*self.triples)+(4*self.home_runs)).to_f</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>120</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>121</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>122</td>
+              <td class='code_line'>
+                <pre>  def calculate_singles</pre>
+              </td>
+              <td class='hit_number'>1</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>123</td>
+              <td class='code_line'>
+                <pre>    return self.hits-(self.doubles+self.triples+self.home_runs)</pre>
+              </td>
+              <td class='hit_number'>1903</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>124</td>
+              <td class='code_line'>
+                <pre>  end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>125</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>126</td>
+              <td class='code_line'>
+                <pre>  #def stat_set</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>127</td>
+              <td class='code_line'>
+                <pre>  #  puts [runs,home_runs,steals,rbi,self.batting_average()].join(", ")</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>128</td>
+              <td class='code_line'>
+                <pre>  #end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>129</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>130</td>
+              <td class='code_line'>
+                <pre>  #RUNS, runs</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>131</td>
+              <td class='code_line'>
+                <pre>  #HR, Home Runs</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>132</td>
+              <td class='code_line'>
+                <pre>  #SB, Stolen Bases</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>133</td>
+              <td class='code_line'>
+                <pre>  #</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>134</td>
+              <td class='code_line'>
+                <pre>  #RBI, runs batted in</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>135</td>
+              <td class='code_line'>
+                <pre>  #</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>136</td>
+              <td class='code_line'>
+                <pre>  #AVG, Batting Average</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>137</td>
+              <td class='code_line'>
+                <pre>  #OPS On-base Plus Slugging Percentage</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>138</td>
+              <td class='code_line'>
+                <pre>  #=on base percentage + slugging percentage</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>139</td>
+              <td class='code_line'>
+                <pre>end</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+        </table>
+      </div>
+      
+        <div id='test_file' class='side_by_side'>
+          <table id='test'>
+            
+            
+              <tr class="never">
+                <td class='line_number'>1</td>
+                <td class='code_line'>
+                  <pre>require 'spec_helper'</pre>
+                </td>
+              </tr>
+              
+            
+              <tr class="never">
+                <td class='line_number'>2</td>
+                <td class='code_line'>
+                  <pre></pre>
+                </td>
+              </tr>
+              
+            
+              <tr class="never">
+                <td class='line_number'>3</td>
+                <td class='code_line'>
+                  <pre>describe Player do</pre>
+                </td>
+              </tr>
+              
+            
+              <tr class="never">
+                <td class='line_number'>4</td>
+                <td class='code_line'>
+                  <pre>  pending "add some examples to (or delete) #{__FILE__}"</pre>
+                </td>
+              </tr>
+              
+            
+              <tr class="never">
+                <td class='line_number'>5</td>
+                <td class='code_line'>
+                  <pre>end</pre>
+                </td>
+              </tr>
+              
+            
+          </table>
+        </div>
+      
+    </div>
+    
+    <p>Generated on: 2013-03-29 19:23:00 -0700</p>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+= form_for @player, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :surname, :class => 'control-label'
+    .controls
+      = f.text_area :surname, :class => 'text_area'
+  .control-group
+    = f.label :team_id, :class => 'control-label'
+    .controls
+      = f.number_field :team_id, :class => 'number_field'
+  .control-group
+    = f.label :given_name, :class => 'control-label'
+    .controls
+      = f.text_area :given_name, :class => 'text_area'
+  .control-group
+    = f.label :position, :class => 'control-label'
+    .controls
+      = f.text_area :position, :class => 'text_area'
+  .control-group
+    = f.label :games, :class => 'control-label'
+    .controls
+      = f.text_field :games, :class => 'text_field'
+  .control-group
+    = f.label :games_started, :class => 'control-label'
+    .controls
+      = f.text_field :games_started, :class => 'text_field'
+  .control-group
+    = f.label :at_bats, :class => 'control-label'
+    .controls
+      = f.text_field :at_bats, :class => 'text_field'
+  .control-group
+    = f.label :runs, :class => 'control-label'
+    .controls
+      = f.text_field :runs, :class => 'text_field'
+  .control-group
+    = f.label :hits, :class => 'control-label'
+    .controls
+      = f.text_field :hits, :class => 'text_field'
+  .control-group
+    = f.label :doubles, :class => 'control-label'
+    .controls
+      = f.text_field :doubles, :class => 'text_field'
+  .control-group
+    = f.label :triples, :class => 'control-label'
+    .controls
+      = f.text_field :triples, :class => 'text_field'
+  .control-group
+    = f.label :home_runs, :class => 'control-label'
+    .controls
+      = f.text_field :home_runs, :class => 'text_field'
+  .control-group
+    = f.label :rbi, :class => 'control-label'
+    .controls
+      = f.text_field :rbi, :class => 'text_field'
+  .control-group
+    = f.label :steals, :class => 'control-label'
+    .controls
+      = f.text_field :steals, :class => 'text_field'
+  .control-group
+    = f.label :caught_stealing, :class => 'control-label'
+    .controls
+      = f.text_field :caught_stealing, :class => 'text_field'
+  .control-group
+    = f.label :sacrifice_hits, :class => 'control-label'
+    .controls
+      = f.text_field :sacrifice_hits, :class => 'text_field'
+  .control-group
+    = f.label :sacrifice_flies, :class => 'control-label'
+    .controls
+      = f.text_field :sacrifice_flies, :class => 'text_field'
+  .control-group
+    = f.label :mistakes, :class => 'control-label'
+    .controls
+      = f.text_field :mistakes, :class => 'text_field'
+  .control-group
+    = f.label :pb, :class => 'control-label'
+    .controls
+      = f.text_field :pb, :class => 'text_field'
+  .control-group
+    = f.label :walks, :class => 'control-label'
+    .controls
+      = f.text_field :walks, :class => 'text_field'
+  .control-group
+    = f.label :struck_out, :class => 'control-label'
+    .controls
+      = f.text_field :struck_out, :class => 'text_field'
+  .control-group
+    = f.label :hit_by_pitch, :class => 'control-label'
+    .controls
+      = f.text_field :hit_by_pitch, :class => 'text_field'
+  .control-group
+    = f.label :throws, :class => 'control-label'
+    .controls
+      = f.text_field :throws, :class => 'text_field'
+  .control-group
+    = f.label :wins, :class => 'control-label'
+    .controls
+      = f.text_field :wins, :class => 'text_field'
+  .control-group
+    = f.label :losses, :class => 'control-label'
+    .controls
+      = f.text_field :losses, :class => 'text_field'
+  .control-group
+    = f.label :saves, :class => 'control-label'
+    .controls
+      = f.text_field :saves, :class => 'text_field'
+  .control-group
+    = f.label :complete_games, :class => 'control-label'
+    .controls
+      = f.text_field :complete_games, :class => 'text_field'
+  .control-group
+    = f.label :shut_outs, :class => 'control-label'
+    .controls
+      = f.text_field :shut_outs, :class => 'text_field'
+  .control-group
+    = f.label :era, :class => 'control-label'
+    .controls
+      = f.text_field :era, :class => 'text_field'
+  .control-group
+    = f.label :innings, :class => 'control-label'
+    .controls
+      = f.text_field :innings, :class => 'text_field'
+  .control-group
+    = f.label :earned_runs, :class => 'control-label'
+    .controls
+      = f.text_field :earned_runs, :class => 'text_field'
+  .control-group
+    = f.label :hit_batter, :class => 'control-label'
+    .controls
+      = f.text_field :hit_batter, :class => 'text_field'
+  .control-group
+    = f.label :wild_pitches, :class => 'control-label'
+    .controls
+      = f.text_field :wild_pitches, :class => 'text_field'
+  .control-group
+    = f.label :balk, :class => 'control-label'
+    .controls
+      = f.text_field :balk, :class => 'text_field'
+  .control-group
+    = f.label :walked_batter, :class => 'control-label'
+    .controls
+      = f.text_field :walked_batter, :class => 'text_field'
+  .control-group
+    = f.label :struck_out_batter, :class => 'control-label'
+    .controls
+      = f.text_field :struck_out_batter, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), players_path, :class => 'btn'

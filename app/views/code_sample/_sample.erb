@@ -1,0 +1,51 @@
+<div class="CodeRay">
+  <div class="code"><pre>
+<span style="color:#777"># key_manipulation_hash.rb</span>
+<span style="color:#777">#</span>
+<span style="color:#777"># Additional hash functions for hash key conversion operations</span>
+<span style="color:#777">#</span>
+<span style="color:#777"># Copyright Adrian S. Kierman 2013</span>
+
+<span style="color:#777"># Uses similar process as rails does to add functionality to the hash</span>
+<span style="color:#777"># class (by reopening the hash class and adding new methods)</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Hash</span>
+  <span style="color:#777"># Returns this hash with all the keys made lower case.</span>
+  <span style="color:#777"># This will iterate through nested hashes and nested arrays as well.</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">keys_to_downcase</span>()
+    <span style="color:#069">self</span>.deep_convert_keys { |k| k.to_s.downcase }
+  <span style="color:#080;font-weight:bold">end</span>
+
+  <span style="color:#777"># Returns this hash with all the keys made into ruby symbols.</span>
+  <span style="color:#777"># This will iterate through nested hashes and nested arrays as well.</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">keys_to_symbols</span>()
+    <span style="color:#069">self</span>.deep_convert_keys { |k| k.to_s.to_sym }
+  <span style="color:#080;font-weight:bold">end</span>
+
+  <span style="color:#777"># Descends through a nested hash and converts just the keys of the hash using a supplied block.</span>
+  <span style="color:#777"># Nested arrays and nested hashes are also processed.</span>
+  <span style="color:#777"># Params:</span>
+  <span style="color:#777"># +key_conversion_block+:: a block of code that will convert a key and return a new key.</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">deep_convert_keys</span>(&amp;key_conversion_block)
+    <span style="color:#080;font-weight:bold">if</span> (block_given?)
+      result={}
+      <span style="color:#069">self</span>.each_pair <span style="color:#080;font-weight:bold">do</span> |k, v|
+        <span style="color:#080;font-weight:bold">case</span> v
+          <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">String</span>, <span style="color:#036;font-weight:bold">Fixnum</span> <span style="color:#080;font-weight:bold">then</span>
+            result[<span style="color:#080;font-weight:bold">yield</span>(k)]=v
+          <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">Hash</span> <span style="color:#080;font-weight:bold">then</span>
+            result[<span style="color:#080;font-weight:bold">yield</span>(k)]=v.deep_convert_keys(&amp;key_conversion_block)
+          <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">Array</span> <span style="color:#080;font-weight:bold">then</span>
+            result[<span style="color:#080;font-weight:bold">yield</span>(k)]=v.collect { |a| a.deep_convert_keys(&amp;key_conversion_block)  }
+          <span style="color:#080;font-weight:bold">when</span> <span style="color:#036;font-weight:bold">NilClass</span> <span style="color:#080;font-weight:bold">then</span>
+            result[<span style="color:#080;font-weight:bold">yield</span>(k)]=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">NIL</span><span style="color:#710">&quot;</span></span>
+          <span style="color:#080;font-weight:bold">else</span>
+            raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Unhandled type </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>v.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+        <span style="color:#080;font-weight:bold">end</span>
+      <span style="color:#080;font-weight:bold">end</span>
+     <span style="color:#080;font-weight:bold">return</span> result
+    <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span> <span style="color:#777"># return self if no key conversion block was given to this method</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre></div>
+</div>

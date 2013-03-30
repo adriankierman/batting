@@ -1,0 +1,153 @@
+- model_class = Player
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:surname) + ':'
+  %br
+  = @player.surname
+%p
+  %strong= model_class.human_attribute_name(:team_id) + ':'
+  %br
+  = @player.team_id
+%p
+  %strong= model_class.human_attribute_name(:given_name) + ':'
+  %br
+  = @player.given_name
+%p
+  %strong= model_class.human_attribute_name(:position) + ':'
+  %br
+  = @player.position
+%p
+  %strong= model_class.human_attribute_name(:games) + ':'
+  %br
+  = @player.games
+%p
+  %strong= model_class.human_attribute_name(:games_started) + ':'
+  %br
+  = @player.games_started
+%p
+  %strong= model_class.human_attribute_name(:at_bats) + ':'
+  %br
+  = @player.at_bats
+%p
+  %strong= model_class.human_attribute_name(:runs) + ':'
+  %br
+  = @player.runs
+%p
+  %strong= model_class.human_attribute_name(:hits) + ':'
+  %br
+  = @player.hits
+%p
+  %strong= model_class.human_attribute_name(:doubles) + ':'
+  %br
+  = @player.doubles
+%p
+  %strong= model_class.human_attribute_name(:triples) + ':'
+  %br
+  = @player.triples
+%p
+  %strong= model_class.human_attribute_name(:home_runs) + ':'
+  %br
+  = @player.home_runs
+%p
+  %strong= model_class.human_attribute_name(:rbi) + ':'
+  %br
+  = @player.rbi
+%p
+  %strong= model_class.human_attribute_name(:steals) + ':'
+  %br
+  = @player.steals
+%p
+  %strong= model_class.human_attribute_name(:caught_stealing) + ':'
+  %br
+  = @player.caught_stealing
+%p
+  %strong= model_class.human_attribute_name(:sacrifice_hits) + ':'
+  %br
+  = @player.sacrifice_hits
+%p
+  %strong= model_class.human_attribute_name(:sacrifice_flies) + ':'
+  %br
+  = @player.sacrifice_flies
+%p
+  %strong= model_class.human_attribute_name(:mistakes) + ':'
+  %br
+  = @player.mistakes
+%p
+  %strong= model_class.human_attribute_name(:pb) + ':'
+  %br
+  = @player.pb
+%p
+  %strong= model_class.human_attribute_name(:walks) + ':'
+  %br
+  = @player.walks
+%p
+  %strong= model_class.human_attribute_name(:struck_out) + ':'
+  %br
+  = @player.struck_out
+%p
+  %strong= model_class.human_attribute_name(:hit_by_pitch) + ':'
+  %br
+  = @player.hit_by_pitch
+%p
+  %strong= model_class.human_attribute_name(:throws) + ':'
+  %br
+  = @player.throws
+%p
+  %strong= model_class.human_attribute_name(:wins) + ':'
+  %br
+  = @player.wins
+%p
+  %strong= model_class.human_attribute_name(:losses) + ':'
+  %br
+  = @player.losses
+%p
+  %strong= model_class.human_attribute_name(:saves) + ':'
+  %br
+  = @player.saves
+%p
+  %strong= model_class.human_attribute_name(:complete_games) + ':'
+  %br
+  = @player.complete_games
+%p
+  %strong= model_class.human_attribute_name(:shut_outs) + ':'
+  %br
+  = @player.shut_outs
+%p
+  %strong= model_class.human_attribute_name(:era) + ':'
+  %br
+  = @player.era
+%p
+  %strong= model_class.human_attribute_name(:innings) + ':'
+  %br
+  = @player.innings
+%p
+  %strong= model_class.human_attribute_name(:earned_runs) + ':'
+  %br
+  = @player.earned_runs
+%p
+  %strong= model_class.human_attribute_name(:hit_batter) + ':'
+  %br
+  = @player.hit_batter
+%p
+  %strong= model_class.human_attribute_name(:wild_pitches) + ':'
+  %br
+  = @player.wild_pitches
+%p
+  %strong= model_class.human_attribute_name(:balk) + ':'
+  %br
+  = @player.balk
+%p
+  %strong= model_class.human_attribute_name(:walked_batter) + ':'
+  %br
+  = @player.walked_batter
+%p
+  %strong= model_class.human_attribute_name(:struck_out_batter) + ':'
+  %br
+  = @player.struck_out_batter
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), players_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_player_path(@player), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), player_path(@player), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
