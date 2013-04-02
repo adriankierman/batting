@@ -6,7 +6,7 @@ Batting - Rails Baseball Statistics Site
 Batting is a baseball statistics site. Its also a quick demo of how rails technologies can make coding productive and make
  a relatively intuitive statistics site for users.
 
-    % http://batting.herokuapp.com
+http://batting.herokuapp.com
 
 ## Design
 
