@@ -6,6 +6,8 @@ Batting - Rails Baseball Statistics Site
 Batting is a baseball statistics site. Its also a quick demo of how rails technologies can make coding productive and make
  a relatively intuitive statistics site for users.
 
+    % http://batting.herokuapp.com
+
 ## Design
 
 The site follows the conventions of rails design - it adheres to the Model, View, Controller (MVC) design pattern. In addition
@@ -28,7 +30,7 @@ rake task:
 
 ## Limitations
 
-A design decision to aggressively validate the data was made to ensure a minimum of higher quality datapoints. Rails
+A design decision to aggressively validate the data was made to ensure a set of higher quality data points. Rails
 validations were used to perform this validation. This was considered acceptable, because accepting dirty data and
 adjusting for it was beyond the scope of the project. Normalizing player name and year batting statistics over multiple
 years for players was deferred due to time constraints - but can be very easily accomplished.
