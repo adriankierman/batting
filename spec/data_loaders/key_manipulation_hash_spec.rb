@@ -2,6 +2,17 @@ require "rspec"
 require './lib/core_ext/key_manipulation_hash'
 
 
+describe "when supplied with a valid uppercase keyed hash" do
+
+  it "should return the original hash with converted keys" do
+    h={"A"=>[{"B"=>1},{"C"=>2}]}
+    h=h.keys_to_downcase.keys_to_symbols
+    h[:a][0][:b].should == 1
+    h[:a][1][:c].should == 2
+  end
+end
+
+
 describe "when supplied with no block for conversion" do
 
   it "should return the original hash unaltered" do

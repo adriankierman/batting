@@ -2,8 +2,8 @@
   <head>
     <title>lib/core_ext/key_manipulation_hash.rb</title>
     
-    <link href="../../report.css?0.8115100180947995" media="screen" rel="stylesheet" type="text/css" />
-    <script src='../../jquery.js?0.7715191444133214'></script>
+    <link href="../../report.css?0.71391355833336" media="screen" rel="stylesheet" type="text/css" />
+    <script src='../../jquery.js?0.10190272512833187'></script>
     <script>
       $(function() {
 
@@ -55,7 +55,7 @@
           lib/core_ext/key_manipulation_hash.rb
           
         </td>
-        <td>41</td>
+        <td>49</td>
         <td>17</td>
         <td>0</td>
         <td>100.0%</td>
@@ -88,7 +88,7 @@
             <tr class="never" "">
               <td class='line_number'>1</td>
               <td class='code_line'>
-                <pre>#</pre>
+                <pre></pre>
               </td>
               <td class='hit_number'></td>
             </tr>
@@ -96,7 +96,7 @@
             <tr class="never" "">
               <td class='line_number'>2</td>
               <td class='code_line'>
-                <pre># Additional hash functions for hash key conversion operations</pre>
+                <pre># key_manipulation_hash.rb</pre>
               </td>
               <td class='hit_number'></td>
             </tr>
@@ -112,7 +112,7 @@
             <tr class="never" "">
               <td class='line_number'>4</td>
               <td class='code_line'>
-                <pre># Copyright Adrian S. Kierman 2013</pre>
+                <pre># Additional hash functions for hash key conversion operations</pre>
               </td>
               <td class='hit_number'></td>
             </tr>
@@ -120,17 +120,17 @@
             <tr class="never" "">
               <td class='line_number'>5</td>
               <td class='code_line'>
-                <pre></pre>
+                <pre>#</pre>
               </td>
               <td class='hit_number'></td>
             </tr>
           
-            <tr class="hit" data-hits='#{cov}'"">
+            <tr class="never" "">
               <td class='line_number'>6</td>
               <td class='code_line'>
-                <pre>class Hash</pre>
+                <pre># Copyright Adrian S. Kierman 2013</pre>
               </td>
-              <td class='hit_number'>2</td>
+              <td class='hit_number'></td>
             </tr>
           
             <tr class="never" "">
@@ -141,8 +141,56 @@
               <td class='hit_number'></td>
             </tr>
           
-            <tr class="hit" data-hits='#{cov}'"">
+            <tr class="never" "">
               <td class='line_number'>8</td>
+              <td class='code_line'>
+                <pre># Uses similar process as rails does to add functionality to the hash</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>9</td>
+              <td class='code_line'>
+                <pre># class (by reopening the hash class and adding new methods)</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>10</td>
+              <td class='code_line'>
+                <pre></pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>11</td>
+              <td class='code_line'>
+                <pre>class Hash</pre>
+              </td>
+              <td class='hit_number'>2</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>12</td>
+              <td class='code_line'>
+                <pre>  # Returns this hash with all the keys made lower case.</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>13</td>
+              <td class='code_line'>
+                <pre>  # This will iterate through nested hashes and nested arrays as well.</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>14</td>
               <td class='code_line'>
                 <pre>  def keys_to_downcase()</pre>
               </td>
@@ -150,15 +198,15 @@
             </tr>
           
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>9</td>
+              <td class='line_number'>15</td>
               <td class='code_line'>
-                <pre>    self.deep_collect_keys { |k| k.to_s.downcase }</pre>
+                <pre>    self.deep_convert_keys { |k| k.to_s.downcase }</pre>
               </td>
-              <td class='hit_number'>25857</td>
+              <td class='hit_number'>25861</td>
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>10</td>
+              <td class='line_number'>16</td>
               <td class='code_line'>
                 <pre>  end</pre>
               </td>
@@ -166,15 +214,31 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>11</td>
+              <td class='line_number'>17</td>
               <td class='code_line'>
                 <pre></pre>
               </td>
               <td class='hit_number'></td>
             </tr>
           
+            <tr class="never" "">
+              <td class='line_number'>18</td>
+              <td class='code_line'>
+                <pre>  # Returns this hash with all the keys made into ruby symbols.</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>19</td>
+              <td class='code_line'>
+                <pre>  # This will iterate through nested hashes and nested arrays as well.</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>12</td>
+              <td class='line_number'>20</td>
               <td class='code_line'>
                 <pre>  def keys_to_symbols()</pre>
               </td>
@@ -182,15 +246,15 @@
             </tr>
           
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>13</td>
+              <td class='line_number'>21</td>
               <td class='code_line'>
-                <pre>    self.deep_collect_keys { |k| k.to_s.to_sym }</pre>
+                <pre>    self.deep_convert_keys { |k| k.to_s.to_sym }</pre>
               </td>
-              <td class='hit_number'>25856</td>
+              <td class='hit_number'>25860</td>
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>14</td>
+              <td class='line_number'>22</td>
               <td class='code_line'>
                 <pre>  end</pre>
               </td>
@@ -198,105 +262,41 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>15</td>
+              <td class='line_number'>23</td>
               <td class='code_line'>
                 <pre></pre>
               </td>
               <td class='hit_number'></td>
             </tr>
           
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>16</td>
-              <td class='code_line'>
-                <pre>  def deep_collect_keys(&key_conversion_block)</pre>
-              </td>
-              <td class='hit_number'>2</td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>17</td>
-              <td class='code_line'>
-                <pre>    if (block_given?)</pre>
-              </td>
-              <td class='hit_number'>3800</td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>18</td>
-              <td class='code_line'>
-                <pre>      result={}</pre>
-              </td>
-              <td class='hit_number'>3799</td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>19</td>
-              <td class='code_line'>
-                <pre>      self.each_pair do |k, v|</pre>
-              </td>
-              <td class='hit_number'>3799</td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>20</td>
-              <td class='code_line'>
-                <pre>        case v</pre>
-              </td>
-              <td class='hit_number'>77566</td>
-            </tr>
-          
             <tr class="never" "">
-              <td class='line_number'>21</td>
-              <td class='code_line'>
-                <pre>          when String, Fixnum then</pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>22</td>
-              <td class='code_line'>
-                <pre>            result[yield(k)]=v</pre>
-              </td>
-              <td class='hit_number'>77257</td>
-            </tr>
-          
-            <tr class="never" "">
-              <td class='line_number'>23</td>
-              <td class='code_line'>
-                <pre>          when Hash then</pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="hit" data-hits='#{cov}'"">
               <td class='line_number'>24</td>
               <td class='code_line'>
-                <pre>            result[yield(k)]=v.deep_collect_keys(&key_conversion_block)</pre>
+                <pre>  # Descends through a nested hash and converts just the keys of the hash using a supplied block.</pre>
               </td>
-              <td class='hit_number'>3</td>
+              <td class='hit_number'></td>
             </tr>
           
             <tr class="never" "">
               <td class='line_number'>25</td>
               <td class='code_line'>
-                <pre>          when Array then</pre>
+                <pre>  # Nested arrays and nested hashes are also processed.</pre>
               </td>
               <td class='hit_number'></td>
             </tr>
           
-            <tr class="hit" data-hits='#{cov}'"">
+            <tr class="never" "">
               <td class='line_number'>26</td>
               <td class='code_line'>
-                <pre>            result[yield(k)]=v.collect { |a| a.deep_collect_keys(&key_conversion_block)  }</pre>
+                <pre>  # Params:</pre>
               </td>
-              <td class='hit_number'>3909</td>
+              <td class='hit_number'></td>
             </tr>
           
             <tr class="never" "">
               <td class='line_number'>27</td>
               <td class='code_line'>
-                <pre>          when NilClass then</pre>
+                <pre>  # +key_conversion_block+:: a block of code that will convert a key and return a new key.</pre>
               </td>
               <td class='hit_number'></td>
             </tr>
@@ -304,13 +304,109 @@
             <tr class="hit" data-hits='#{cov}'"">
               <td class='line_number'>28</td>
               <td class='code_line'>
+                <pre>  def deep_convert_keys(&key_conversion_block)</pre>
+              </td>
+              <td class='hit_number'>2</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>29</td>
+              <td class='code_line'>
+                <pre>    if (block_given?)</pre>
+              </td>
+              <td class='hit_number'>3806</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>30</td>
+              <td class='code_line'>
+                <pre>      result={}</pre>
+              </td>
+              <td class='hit_number'>3805</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>31</td>
+              <td class='code_line'>
+                <pre>      self.each_pair do |k, v|</pre>
+              </td>
+              <td class='hit_number'>3805</td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>32</td>
+              <td class='code_line'>
+                <pre>        case v</pre>
+              </td>
+              <td class='hit_number'>77572</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>33</td>
+              <td class='code_line'>
+                <pre>          when String, Fixnum then</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>34</td>
+              <td class='code_line'>
+                <pre>            result[yield(k)]=v</pre>
+              </td>
+              <td class='hit_number'>77261</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>35</td>
+              <td class='code_line'>
+                <pre>          when Hash then</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>36</td>
+              <td class='code_line'>
+                <pre>            result[yield(k)]=v.deep_convert_keys(&key_conversion_block)</pre>
+              </td>
+              <td class='hit_number'>3</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>37</td>
+              <td class='code_line'>
+                <pre>          when Array then</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>38</td>
+              <td class='code_line'>
+                <pre>            result[yield(k)]=v.collect { |a| a.deep_convert_keys(&key_conversion_block)  }</pre>
+              </td>
+              <td class='hit_number'>3915</td>
+            </tr>
+          
+            <tr class="never" "">
+              <td class='line_number'>39</td>
+              <td class='code_line'>
+                <pre>          when NilClass then</pre>
+              </td>
+              <td class='hit_number'></td>
+            </tr>
+          
+            <tr class="hit" data-hits='#{cov}'"">
+              <td class='line_number'>40</td>
+              <td class='code_line'>
                 <pre>            result[yield(k)]="NIL"</pre>
               </td>
               <td class='hit_number'>188</td>
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>29</td>
+              <td class='line_number'>41</td>
               <td class='code_line'>
                 <pre>          else</pre>
               </td>
@@ -318,7 +414,7 @@
             </tr>
           
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>30</td>
+              <td class='line_number'>42</td>
               <td class='code_line'>
                 <pre>            raise ArgumentError, "Unhandled type #{v.class}"</pre>
               </td>
@@ -326,7 +422,7 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>31</td>
+              <td class='line_number'>43</td>
               <td class='code_line'>
                 <pre>        end</pre>
               </td>
@@ -334,7 +430,7 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>32</td>
+              <td class='line_number'>44</td>
               <td class='code_line'>
                 <pre>      end</pre>
               </td>
@@ -342,15 +438,15 @@
             </tr>
           
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>33</td>
+              <td class='line_number'>45</td>
               <td class='code_line'>
                 <pre>     return result</pre>
               </td>
-              <td class='hit_number'>3798</td>
+              <td class='hit_number'>3804</td>
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>34</td>
+              <td class='line_number'>46</td>
               <td class='code_line'>
                 <pre>    end</pre>
               </td>
@@ -358,7 +454,7 @@
             </tr>
           
             <tr class="hit" data-hits='#{cov}'"">
-              <td class='line_number'>35</td>
+              <td class='line_number'>47</td>
               <td class='code_line'>
                 <pre>    return self # return self if no key conversion block was given to this method</pre>
               </td>
@@ -366,7 +462,7 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>36</td>
+              <td class='line_number'>48</td>
               <td class='code_line'>
                 <pre>  end</pre>
               </td>
@@ -374,39 +470,7 @@
             </tr>
           
             <tr class="never" "">
-              <td class='line_number'>37</td>
-              <td class='code_line'>
-                <pre></pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="never" "">
-              <td class='line_number'>38</td>
-              <td class='code_line'>
-                <pre></pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="never" "">
-              <td class='line_number'>39</td>
-              <td class='code_line'>
-                <pre></pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="never" "">
-              <td class='line_number'>40</td>
-              <td class='code_line'>
-                <pre></pre>
-              </td>
-              <td class='hit_number'></td>
-            </tr>
-          
-            <tr class="never" "">
-              <td class='line_number'>41</td>
+              <td class='line_number'>49</td>
               <td class='code_line'>
                 <pre>end</pre>
               </td>
@@ -418,6 +482,6 @@
       
     </div>
     
-    <p>Generated on: 2013-03-29 19:23:00 -0700</p>
+    <p>Generated on: 2013-04-02 15:17:15 -0700</p>
   </body>
 </html>
